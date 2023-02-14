@@ -1,4 +1,4 @@
-package basics
+package basics.structure
 
 /**
  * @Auther: wxf
@@ -41,6 +41,37 @@ class SinglyLinkedList[T] {
       tail = tail.next
     }
   }
+
+  // 删除元素
+  def delete(ele: T): Boolean = {
+    // 如果头节点为 null, 表示没有元素, 所以删除失败
+    if (head == null) return false
+    // 如果头节点就是要删除, 则删除当前的头节点, 并把下一个节点设置为头节点. 如果删除的节点也是尾节点,则需要更新尾节点
+    if (head.value == ele) {
+      if (head.eq(tail)) { // 必须比较是否为同一个对象. 等价于 java 的比较地址值是否相等
+        tail = head.next // 更新尾节点
+      }
+      head = head.next // 更新头节点
+      return true
+    } else { // 如果头节点不是要删除的节点, 则遍历后面的节点
+      var currentNode: Node = head // 当前节点
+      var nextNode: Node = currentNode.next // 下一个节点
+      while (nextNode != null) {
+        if (nextNode.value == ele) { // 删除
+          currentNode.next = nextNode.next // 让当前节点指向下一个节点的下一个节点
+          if (nextNode.eq(tail)) { // 如果要删除的节点是尾节点, 尾节点需要指向当前节点
+            tail = currentNode
+          }
+          return true
+        }
+        currentNode = nextNode
+        nextNode = currentNode.next
+      }
+    }
+
+    false
+  }
+
 
   // 判断链表中元素是否存在
   def contain(ele: T): Boolean = {
