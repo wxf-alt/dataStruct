@@ -27,7 +27,7 @@ object MergeSort {
       // 对右边进行排序
       sort(arr, mid + 1, stop)
       // 治（合并）
-      merge(arr, start, mid, stop)
+      merge1(arr, start, mid, stop)
     }
 
     // 合并
@@ -59,9 +59,9 @@ object MergeSort {
 
     // 合并（添加一个哨兵）
     def merge1(arr: Array[Int], start: Int, mid: Int, stop: Int): Unit = {
-      // 截取已经有序的数组 [start,mid]
+      // 截取已经有序的数组 [start,mid)
       val left: Array[Int] = arr.slice(start, mid + 1) :+ Int.MaxValue
-      // 截取已经有序的数组 [mid + 1,stop]
+      // 截取已经有序的数组 [mid + 1,stop)
       val right: Array[Int] = arr.slice(mid + 1, stop + 1) :+ Int.MaxValue
       var leftIndex: Int = 0 // left数组索引
       var rightIndex: Int = 0 // right数组索引
@@ -74,8 +74,6 @@ object MergeSort {
           rightIndex += 1
         }
       }
-
-
     }
 
   }
