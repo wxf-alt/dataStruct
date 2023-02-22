@@ -25,7 +25,6 @@ object BubbleSort {
         }
       }
     }
-
   }
 
 }

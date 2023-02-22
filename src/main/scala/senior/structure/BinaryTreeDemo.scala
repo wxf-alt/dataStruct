@@ -61,5 +61,4 @@ class BinaryTree[T](value: T) {
     op(value)
   }
 
-
 }

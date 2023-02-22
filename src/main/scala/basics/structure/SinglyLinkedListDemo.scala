@@ -96,15 +96,3 @@ class SinglyLinkedList[T] {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

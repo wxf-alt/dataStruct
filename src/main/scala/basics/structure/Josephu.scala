@@ -45,7 +45,7 @@ object Josephu {
       for (i <- 1 to num) {
         startNode = startNode.next
       }
-      // 找到好枪毙那个人, 就是startNode
+      // 找到枪毙那个人, 就是startNode
       list.delete(startNode.value)
       startNode = startNode.pre
     }

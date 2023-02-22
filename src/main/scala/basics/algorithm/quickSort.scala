@@ -62,7 +62,6 @@ object quickSort {
       quick(arr, mid + 1, rigth)
     }
 
-
   }
 
   // 不是原地排序，而实返回排好序的新的数组，原来的数组不做任务变化
